@@ -12,6 +12,11 @@ import { ProductsComponent } from './modules/products/products.component';
 import { AdminComponent } from './modules/admin/admin.component';
 
 const routes: Routes = [
+  { 
+    path: '', 
+    redirectTo: '/login', 
+    pathMatch: 'full' 
+  },
   {
     path: 'login',
     component: AuthComponent
