@@ -10,7 +10,7 @@ import { CheckoutComponent } from './modules/checkout/checkout.component';
 import { PendingOrdersComponent } from './modules/pending-orders/pending-orders.component';
 import { ProductsComponent } from './modules/products/products.component';
 import { AdminComponent } from './modules/admin/admin.component';
-
+import { SignupComponent } from './modules/signup/signup.component';
 const routes: Routes = [
   { 
     path: '', 
@@ -20,6 +20,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: AuthComponent
+  },
+  {
+    path: 'sign-up',
+    component: SignupComponent
   },
   {
     path: 'forgot-password',
