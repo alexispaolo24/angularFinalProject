@@ -11,6 +11,8 @@ export class AuthComponent {
   password: string = ''
   errorMessage: string = ''
 
+  backgroundImageUrl = 'assets/image/arrangement-black-friday-shopping-carts-with-copy-space.jpg';
+
   constructor(private router: Router){}
 
   login(){
