@@ -12,6 +12,8 @@ export class ForgotPasswordComponent {
   mobileNo: string = ''
   errorMessage: string = ''
 
+  backgroundImageUrl = 'assets/image/golden-shopping-carts-black-background.jpg';
+
   constructor(private router:Router){}
 
   submit(){

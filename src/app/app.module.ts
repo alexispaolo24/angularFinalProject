@@ -14,7 +14,9 @@ import { CheckoutComponent } from './modules/checkout/checkout.component';
 import { PendingOrdersComponent } from './modules/pending-orders/pending-orders.component';
 import { ProductsComponent } from './modules/products/products.component';
 import { AdminComponent } from './modules/admin/admin.component';
+import { SignupComponent } from './modules/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { HttpClientModule } from '@angular/common/http';
     CheckoutComponent,
     PendingOrdersComponent,
     ProductsComponent,
-    AdminComponent
+    AdminComponent,
+    SignupComponent,
+    
   ],
   imports: [
     BrowserModule,
