@@ -44,9 +44,18 @@
   "users": [
     {
       "id": "1",
-      "name": "Rick Agaim",
-      "age": 25,
-      "active": true
+      "username": "alexis_paolo",
+      "email": "alexis@example.com",
+      "type": "admin",
+      "isActive": true,
+      "password": "alexisPassword123",
+      "firstName": "Alexis",
+      "middleName": "Paolo",
+      "lastName": "Moneva",
+      "mobileNo": "639206394731",
+      "listOfInterests": [
+        "Shoes"
+      ]
     },
     {
       "id": "2",
@@ -77,18 +86,6 @@
       "listOfInterests": [
         "Clothing"
       ]
-    },
-    {
-      "id": "3e16",
-      "name": "Jack Rambo",
-      "age": 2,
-      "active": true
-    },
-    {
-      "id": "4640",
-      "name": "Jack Rambo",
-      "age": 2,
-      "active": true
     }
   ]
 }
