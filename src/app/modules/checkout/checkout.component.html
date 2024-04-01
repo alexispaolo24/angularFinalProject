@@ -1,0 +1,24 @@
+<div>
+    <h2>Checkout</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cartItems">
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.price * item.quantity }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Total Price: {{ getTotalPrice() }}</p>
+    <p>Total Quantity: {{ getTotalQuantity() }}</p>
+    <button (click)="submitTransaction()">Submit</button>
+</div>
