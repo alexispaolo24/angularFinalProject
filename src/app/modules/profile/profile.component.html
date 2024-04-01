@@ -1,0 +1,16 @@
+<div>
+    <h2>Profile</h2>
+    <div>
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>First Name:</strong> {{ user.firstName }}</p>
+        <p><strong>Middle Name:</strong> {{ user.middleName }}</p>
+        <p><strong>Last Name:</strong> {{ user.lastName }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Birthdate:</strong> {{ user.birthdate }}</p>
+        <p><strong>Interests:</strong></p>
+        <ul>
+            <li *ngFor="let interest of user.interests">{{ interest }}</li>
+        </ul>
+    </div>
+    <button (click) = "editProfile()">Edit</button>
+</div>

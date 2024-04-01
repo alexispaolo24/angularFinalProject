@@ -1,0 +1,41 @@
+<div>
+    <h2>Product Dashboard</h2>
+
+    <div>
+        <label>Category:</label>
+        <select [(ngModel)]="selectedCategory">
+            <option value="">All</option>
+            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+
+        <label>Price Range:</label>
+        <input type="number" [(ngModel)]="minPrice" placeholder="Min">
+        <input type="number" [(ngModel)]="maxPrice" placeholder="Max">
+    </div>
+
+
+    <div>
+        <label>Sort By Name:</label>
+        <select [(ngModel)]="sortBy">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+    </div>
+
+    <div *ngFor="let product of filteredProducts">
+        <h3>{{ product.name }}</h3>
+        <p>Category: {{ product.category }}</p>
+        <p>Price: Php{{ product.price }}</p>
+        <input type="number" [(ngModel)]="product.quantity" placeholder="quantity">
+        <button (click)="addToCart(product)">Add to Cart</button>
+    </div>
+
+    <div *ngIf="isAdmin">
+        <h3>Top 5 Highest Bought Items:</h3>
+        <ul>
+            <li *ngFor="let product of products">
+                {{ product.name }} - {{ product.sales }} sales
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div>
+    <h2>Pending Orders</h2>
+    <div *ngFor="let order of pendingOrders">
+        <h3>Order #{{ order.id }}</h3>
+        <div *ngFor="let item of order.items">
+            <p>{{ item.name }}</p>
+            <p>Quantity: {{ item.quantity }}</p>
+            <p>Price: Php{{ item.price }}</p>
+        </div>
+        <p>Total Quantity: {{ order.totalQuantity }}</p>
+        <p>Total Price: Php{{ order.totalPrice }}</p>
+    </div>
+</div>
