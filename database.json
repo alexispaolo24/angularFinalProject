@@ -1,0 +1,91 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "PUMA Smash Vulc Canvas Shoes",
+      "category": "Unisex",
+      "price": "3400",
+      "quantity": "0",
+      "sales": "50"
+    },
+    {
+      "id": "2",
+      "name": "Nike Downshifter 13 Running Shoes - Platinum Violet",
+      "category": "Womens",
+      "price": "2460",
+      "quantity": "0",
+      "sales": "40"
+    },
+    {
+      "id": "3",
+      "name": "Adidas Lifestyle NY 90 White",
+      "category": "Mens",
+      "price": "5130",
+      "quantity": "0",
+      "sales": "30"
+    },
+    {
+      "id": "4",
+      "name": "Design Loafer Shoes",
+      "category": "Womens",
+      "price": "133",
+      "quantity": "0",
+      "sales": "20"
+    },
+    {
+      "id": "5",
+      "name": "Nike Legend Essential 3 Nature Workout Shoes",
+      "category": "Womens",
+      "price": "2670",
+      "quantity": "0",
+      "sales": "10"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "alexis_paolo",
+      "email": "alexis@example.com",
+      "type": "admin",
+      "isActive": true,
+      "password": "alexisPassword123",
+      "firstName": "Alexis",
+      "middleName": "Paolo",
+      "lastName": "Moneva",
+      "mobileNo": "639206394731",
+      "listOfInterests": [
+        "Shoes"
+      ]
+    },
+    {
+      "id": "2",
+      "username": "john_carlo",
+      "email": "carlo@example.com",
+      "type": "customer",
+      "isActive": true,
+      "password": "carloPassword123",
+      "firstName": "John",
+      "middleName": "Carlo",
+      "lastName": "Gelsana",
+      "mobileNo": "639206394732",
+      "listOfInterests": [
+        "Shoes"
+      ]
+    },
+    {
+      "id": "3",
+      "username": "jhomari_jhomari",
+      "email": "jhomari@example.com",
+      "type": "customer",
+      "isActive": true,
+      "password": "jhomariPassword123",
+      "firstName": "Jhomari",
+      "middleName": "Jhomari",
+      "lastName": "Atienza",
+      "mobileNo": "639206394733",
+      "listOfInterests": [
+        "Clothing"
+      ]
+    }
+  ]
+}

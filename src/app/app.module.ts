@@ -15,6 +15,8 @@ import { PendingOrdersComponent } from './modules/pending-orders/pending-orders.
 import { ProductsComponent } from './modules/products/products.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { SignupComponent } from './modules/signup/signup.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { SignupComponent } from './modules/signup/signup.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()

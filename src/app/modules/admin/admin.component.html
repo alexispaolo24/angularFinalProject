@@ -1,26 +1,30 @@
 <div>
     <h2>Customers</h2>
-    <button (click)="addUser()">Add User</button>
+    <button (click)="addUser()">Add Customer</button>
     <table>
+        <thead>
         <tr>
             <th>Username</th>
             <th>Email</th>
             <th>User Type</th>
             <th>Active</th>
             <th>Actions</th>
-            <th>Password</th>
         </tr>
-        <tr *ngFor="let user of users">
+        </thead>
+        <tbody>
+        <ng-container *ngIf="(users | async) as usersData">
+            <tr *ngFor="let user of usersData">
             <td>{{ user.username }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.type }}</td>
             <td>{{ user.isActive ? 'Yes' : 'No' }}</td>
             <td>
-                <button (click)="deactivateUser(user.id)" [disabled]="!user.isActive">Deactivate</button>
+                <button (click)="[deactivateUser(user.id), getUsers()]" [disabled]="!user.isActive">Deactivate
+                </button>
             </td>
-            <td>
-                <button>Show Password</button>
-            </td>
-        </tr>
+            </tr>
+    </ng-container>
+</tbody>
+
     </table>
 </div>
