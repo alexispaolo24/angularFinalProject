@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 import { Observable } from 'rxjs';
@@ -6,24 +6,51 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrl: './admin.component.scss'
+  styleUrls: ['./admin.component.scss']
 })
-export class AdminComponent {
-  users: Observable<any>;
+export class AdminComponent implements OnInit {
+  users$: Observable<User[]> | undefined;
 
-  constructor(private userService:UserService){
-    this.users = this.userService.getUsers()
+  newUser: User = {
+    username: '',
+    email: '',
+    type: '',
+    isActive: true,
+    password: '',
+    firstName: '',
+    middleName: '',
+    lastName: '',
+    mobileNo: '',
+    listOfInterests: []
+  };
+
+  constructor(private userService: UserService) { }
+
+  ngOnInit() {
+    this.getUsers();
   }
 
-  addUser(){
-
+  addUser() {
+    console.log(this.newUser);
+    this.userService.createUser(this.newUser).subscribe(() => {
+      this.getUsers();
+    }, (error) => {
+      console.error('Failed to add user:', error);
+    });
   }
+  
+  
+  
 
   getUsers() {
-    this.userService.getUsers().subscribe();
+    this.users$ = this.userService.getAllUsers();
   }
 
-  deactivateUser(userId: number){
-    this.userService.deactivateUser(userId).subscribe();
+  deactivateUser(userId: number) {
+    this.userService.deactivateUser(userId).subscribe(() => {
+      this.getUsers(); // Refresh the list of users after deactivating a user
+    }, (error) => {
+      console.error('Failed to deactivate user:', error);
+    });
   }
 }

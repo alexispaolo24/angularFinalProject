@@ -1,15 +1,29 @@
-div{
-    margin:20px
+
+$primary: #007bff; 
+$secondary: #6c757d; 
+
+
+.product-list .card {
+    transition: transform 0.3s ease-in-out;
 }
-h2{
-    margin-bottom: 10px
+
+.product-list .card:hover {
+    transform: translateY(-5px);
 }
-input{
-    margin: 5px
+
+.empty-space {
+    min-height: 20px;
 }
-select{
-    margin: 5px
+
+.card-title-container {
+    height: 4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-button{
-    margin: 5px
+
+.card-title {
+    margin: 0;
+    line-height: 1.5;
+    white-space: normal;
 }
+

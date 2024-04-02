@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,8 +16,7 @@ import { PendingOrdersComponent } from './modules/pending-orders/pending-orders.
 import { ProductsComponent } from './modules/products/products.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { SignupComponent } from './modules/signup/signup.component';
-import { HttpClientModule } from '@angular/common/http';
-
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsComponent,
     AdminComponent,
     SignupComponent,
+    HeaderComponent,
     
   ],
   imports: [
