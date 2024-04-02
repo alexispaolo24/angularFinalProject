@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -11,12 +12,23 @@ export class ForgotPasswordComponent {
   email: string = ''
   mobileNo: string = ''
   errorMessage: string = ''
+  newPassword: string = ''
 
   backgroundImageUrl = 'assets/image/golden-shopping-carts-black-background.jpg';
 
-  constructor(private router:Router){}
+  constructor(private userService: UserService, private router:Router){}
 
-  submit(){
-    this.router.navigate(['/acknowledgement'])
+  onSubmit(): void {
+    this.userService.resetPassword(this.username, this.email, this.mobileNo)
+      .subscribe(
+        (password) => { 
+          this.newPassword = password;
+          this.router.navigate(['/acknowledgment', password]); 
+        },
+        (error) => {
+          console.error('An error occurred:', error);
+          this.errorMessage = 'Invalid credentials. Please try again.';
+        }
+      );
   }
 }

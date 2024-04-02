@@ -1,26 +1,39 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrl: './auth.component.scss'
+  styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent {
-  username: string = ''
-  password: string = ''
-  errorMessage: string = ''
-
+  username: string = '';
+  password: string = '';
+  errorMessage: string = '';
+  
   backgroundImageUrl = 'assets/image/arrangement-black-friday-shopping-carts-with-copy-space.jpg';
 
-  constructor(private router: Router){}
+  constructor(private userService: UserService, private router: Router) {}
 
-  login(){
-    if(this.username === 'admin' && this.password === 'password'){
-      console.log('correct user and password')
-      this.router.navigate(['/dashboard'])
-    } else{
-      this.errorMessage = 'Invalid Username or Password'
+  login() {
+    if (!this.username || !this.password) {
+      this.errorMessage = 'Please provide both username and password';
+      return;
     }
+    this.userService.getUsers(this.username, this.password)
+      .subscribe(
+        (user: User) => {
+          if (user.type === 'admin') {
+            this.router.navigate(['/admin'], { queryParams: { isAdmin: 'true' } });
+          } else {
+            this.router.navigate(['/dashboard'], { queryParams: { isAdmin: 'false' } }); 
+          }
+        },
+        (errorMessage) => {
+          this.errorMessage = errorMessage || 'Invalid username or password';
+        }
+      );
   }
 }

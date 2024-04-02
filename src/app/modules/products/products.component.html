@@ -1,6 +1,6 @@
 <div>
     <h2>Products</h2>
-    <button (click)="addProduct(products)">Add Product</button>
+    <button (click)="addProduct()">Add Product</button>
     <table>
         <tr>
             <th>Name</th>
@@ -13,8 +13,8 @@
             <td>{{ product.category }}</td>
             <td>{{ product.price }}</td>
             <td>
-                <button (click)="editProduct(product.id, product)">Edit</button>
-                <button (click)="deleteProduct(product.id)">Delete</button>
+                <button (click)="editProduct(product)">Edit</button>
+                <button *ngIf="product.id !== undefined" (click)="deleteProduct(product.id)">Delete</button>
             </td>
         </tr>
     </table>
