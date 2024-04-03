@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, catchError, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,9 @@ export class CartService {
     {id: 2, name: 'Nike Downshifter 13 Running Shoes - Platinum Violet', category: 'Womens', price: 2460, quantity: 10}
   ]
 
-  constructor() { }
+  private serverUrl = 'http://localhost:3000'; // Your API endpoint
+
+  constructor(private http: HttpClient) { }
 
   addToCart(item:any){
     this.cartItems.push(item)
@@ -34,5 +38,18 @@ export class CartService {
 
   clearCart(){
     this.cartItems = []
+  }
+
+  createEmptyCart(userId: string): Observable<any> {
+    const emptyCart = { userId, items: [] }; // Create an empty cart object
+    return this.http.post(`${this.serverUrl}/carts`, emptyCart).pipe(
+      tap(() => {
+        console.log('Empty cart created for user:', userId);
+      }),
+      catchError(error => {
+        console.error('Error creating empty cart:', error);
+        return throwError('Failed to create empty cart for user');
+      })
+    );
   }
 }

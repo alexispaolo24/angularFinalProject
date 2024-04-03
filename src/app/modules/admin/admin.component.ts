@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 import { Observable } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -30,13 +31,14 @@ export class AdminComponent implements OnInit {
     this.getUsers();
   }
 
-  addUser() {
+  addUser(form: NgForm) {
     console.log(this.newUser);
     this.userService.createUser(this.newUser).subscribe(() => {
       this.getUsers();
     }, (error) => {
       console.error('Failed to add user:', error);
     });
+    form.resetForm();
   }
   
   

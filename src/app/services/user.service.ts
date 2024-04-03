@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { User } from '../models/user';
 import { switchMap } from 'rxjs/operators';
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class UserService {
   // ]
 
   serverUrl = 'http://localhost:3000';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private cartService: CartService) { }
 
   // getUsers(){
   //   return [...this.users]
@@ -54,10 +56,27 @@ export class UserService {
   //   this.users.push(user)
   // }
 
+  // createUser(user: User): Observable<any> {
+  //   return this.http.post(`${this.serverUrl}/users`, user).pipe(
+  //     tap(response => {
+  //       console.log('Response from server:', response);
+  //     }),
+  //     catchError(error => {
+  //       console.error('Error creating user:', error);
+  //       return throwError('Failed to create user');
+  //     })
+  //   );
+  // }
+
   createUser(user: User): Observable<any> {
     return this.http.post(`${this.serverUrl}/users`, user).pipe(
-      tap(response => {
+      tap((response: any) => {
         console.log('Response from server:', response);
+      }),
+      switchMap((response: any) => {
+        const userId = response.id; // Assuming the API returns the ID of the newly created user
+        // Create an empty cart for the user
+        return this.cartService.createEmptyCart(userId);
       }),
       catchError(error => {
         console.error('Error creating user:', error);
