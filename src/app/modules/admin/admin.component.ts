@@ -12,6 +12,8 @@ import { EditComponent } from '../edit/edit.component';
 })
 export class AdminComponent implements OnInit {
   users$: Observable<User[]> | undefined;
+  currentPage: number = 1;
+  itemsPerPage: number = 5;
   newUser: User = {
     username: '',
     email: '',
@@ -87,5 +89,11 @@ export class AdminComponent implements OnInit {
     } else {
       console.error('Invalid selected user or user ID:', this.selectedUser);
     }
+  }
+
+  pageChanged(event: any) {
+    this.currentPage = event.pageIndex + 1; // Adjusted for 0-based index
+    // Call your API again here with updated page number
+    this.getUsers();
   }
 }

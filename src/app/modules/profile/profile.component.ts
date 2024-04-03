@@ -12,6 +12,8 @@ export class ProfileComponent implements OnInit {
   username: string = '';
   isAdmin: boolean = false;
   user!: User;
+  editMode = false;
+  showPassword = false;
 
   constructor(
     private router: Router,
@@ -25,6 +27,7 @@ export class ProfileComponent implements OnInit {
     const usernameParam = this.route.snapshot.paramMap.get('username');
     if (usernameParam) {
       this.username = usernameParam;
+      console.log('Profile Username', this.username);
       this.userService.getUserByUsername(usernameParam).subscribe(
         (users: User[]) => {
           if (users && users.length > 0) {
@@ -60,5 +63,13 @@ export class ProfileComponent implements OnInit {
 
   editProfile() {
     this.router.navigate(['/edit-profile']);
+  }
+
+  toggleEditMode() {
+    this.editMode = !this.editMode;
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 }

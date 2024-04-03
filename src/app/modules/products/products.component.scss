@@ -26,3 +26,24 @@ button{
     border-radius: 4px;
     cursor: pointer;
 }
+
+.action-button {
+    padding: 0.5rem 1rem; 
+    margin-right: 1rem; 
+    font-size: 1rem; 
+    cursor: pointer;
+  }
+  
+  .delete-button {
+    color: white;
+    background-color: red;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: darkred;
+  }
+  

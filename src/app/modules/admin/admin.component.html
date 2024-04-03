@@ -68,48 +68,50 @@
       </div>
       <br>
       <br>
-    <div class="row">
-      <div class="col-lg-10 col-md-12 mx-auto">
-        <div class="card shadow-lg p-4">
-          <div class="card-header bg-primary text-white">
-            <h2 class="mb-0">Customers</h2>
-          </div>
-          <div class="card-body">
-            <table class="table table-striped table-hover">
-              <thead>
-                <tr>
-                  <th>Username</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Email</th>
-                  <th>Mobile No</th>
-                  <th>User Type</th>
-                  <th>Active</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <ng-container *ngIf="(users$ | async) as usersData">
-                  <tr *ngFor="let user of usersData">
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.firstName }}</td>
-                    <td>{{ user.lastName }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.mobileNo }}</td>
-                    <td>{{ user.type }}</td>
-                    <td>{{ user.isActive ? 'Yes' : 'No' }}</td>
-                    <td>
-                      <button *ngIf="user.id !== undefined" (click)="editUser(user)" class="btn btn-primary btn-sm me-2">Edit</button>
-                      <button *ngIf="user.id !== undefined" (click)="deactivateUser(user.id)" class="btn btn-danger btn-sm me-2" [disabled]="!user.isActive">Deactivate</button>
-                      <button *ngIf="user.id !== undefined" (click)="reActivateUser(user.id)" class="btn btn-success btn-sm me-2" [disabled]="user.isActive">ReActivate</button>
-                    </td>
-                  </tr>
-                </ng-container>
-              </tbody>
-            </table>
-          </div>
-        </div>
+   <div class="row">
+  <div class="col-lg-10 col-md-12 mx-auto">
+    <div class="card shadow-lg p-4">
+      <div class="card-header bg-primary text-white">
+        <h2 class="mb-0">Customers</h2>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Mobile No</th>
+              <th>User Type</th>
+              <th>Active</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngIf="(users$ | async) as usersData">
+              <tr *ngFor="let user of usersData | paginate: { itemsPerPage: 5, currentPage: currentPage }">
+                <td>{{ user.username }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.mobileNo }}</td>
+                <td>{{ user.type }}</td>
+                <td>{{ user.isActive ? 'Yes' : 'No' }}</td>
+                <td>
+                  <button *ngIf="user.id !== undefined" (click)="editUser(user)" class="btn btn-primary btn-sm me-2">Edit</button>
+                  <button *ngIf="user.id !== undefined" (click)="deactivateUser(user.id)" class="btn btn-danger btn-sm me-2" [disabled]="!user.isActive">Deactivate</button>
+                  <button *ngIf="user.id !== undefined" (click)="reActivateUser(user.id)" class="btn btn-success btn-sm me-2" [disabled]="user.isActive">ReActivate</button>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+        <mat-paginator [length]="(users$ | async)?.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" (page)="pageChanged($event)"></mat-paginator>
       </div>
     </div>
+  </div>
+</div>
+
 </body>
 </html>

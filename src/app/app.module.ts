@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,8 @@ import { SignupComponent } from './modules/signup/signup.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { EditComponent } from './modules/edit/edit.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AddProductComponent } from './modules/add-product/add-product.component';
+import { EditProductComponent } from './modules/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     SignupComponent,
     HeaderComponent,
     EditComponent,
+    AddProductComponent,
+    EditProductComponent,
     
   ],
   imports: [
@@ -45,7 +51,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule,
+    NgxPaginationModule
   ],
   providers: [
     provideClientHydration(),
