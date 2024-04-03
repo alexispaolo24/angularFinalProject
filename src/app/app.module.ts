@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,8 @@ import { ProductsComponent } from './modules/products/products.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { SignupComponent } from './modules/signup/signup.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { EditComponent } from './modules/edit/edit.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { HeaderComponent } from './shared/header/header.component';
     AdminComponent,
     SignupComponent,
     HeaderComponent,
+    EditComponent,
     
   ],
   imports: [
@@ -40,10 +44,12 @@ import { HeaderComponent } from './shared/header/header.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
