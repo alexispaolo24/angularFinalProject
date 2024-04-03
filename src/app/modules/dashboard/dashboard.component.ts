@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   maxPrice: number | null = null;
   sortBy: string = 'asc';
   isAdmin: boolean = false;
+  username: string = '';
 
   constructor(
     private productService: ProductService,
@@ -27,11 +28,15 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.route.queryParamMap.subscribe(params => {
+      this.username = params.get('username') || ''; // If username param is not present, default to empty string
+    });
     const isAdminQueryParam = this.route.snapshot.queryParamMap.get('isAdmin');
     this.isAdmin = isAdminQueryParam === 'true'; 
     this.productService.getProducts().subscribe(
       (products: Product[]) => {
         console.log('Admin', this.isAdmin);
+        console.log('Username', this.username);
         this.products = products;
         
         if (this.isAdmin) {

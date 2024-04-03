@@ -49,7 +49,7 @@
   "users": [
     {
       "id": "1",
-      "username": "alexis_paolo",
+      "username": "alexis_paolos",
       "email": "alexis@example.com",
       "type": "admin",
       "isActive": true,
@@ -100,93 +100,10 @@
       "isActive": true,
       "password": "jhomariPassword123",
       "firstName": "Jhomari",
-      "middleName": "Barcelona",
+      "middleName": "Barcelonaaaaa",
       "lastName": "Atienza",
       "mobileNo": "09487900042",
       "listOfInterests": []
-    },
-    {
-      "id": "00d9",
-      "username": "testCustomer1",
-      "email": "testcustomer1@sample.com",
-      "type": "customer",
-      "isActive": true,
-      "password": "password",
-      "firstName": "Test",
-      "middleName": "Customer",
-      "lastName": "One",
-      "mobileNo": "09123456789",
-      "listOfInterests": []
-    },
-    {
-      "id": "22a6",
-      "username": "testAdmin1",
-      "email": "testadmin1@sample.com",
-      "type": "admin",
-      "isActive": true,
-      "password": "password",
-      "firstName": "Test",
-      "middleName": "Admin",
-      "lastName": "One",
-      "mobileNo": "09123456789",
-      "listOfInterests": []
-    },
-    {
-      "id": "923f",
-      "username": "testCustomer2",
-      "email": "testcustomer2@sample.com",
-      "type": "customer",
-      "isActive": true,
-      "password": "password",
-      "firstName": "Test",
-      "middleName": "Two",
-      "lastName": "Customer",
-      "mobileNo": "09123456789",
-      "listOfInterests": []
-    },
-    {
-      "id": "db97",
-      "username": "testAdmin2",
-      "email": "testadmin2@sample.com",
-      "type": "admin",
-      "isActive": true,
-      "password": "password",
-      "firstName": "Test",
-      "middleName": "Two",
-      "lastName": "Admin",
-      "mobileNo": "09123456789",
-      "listOfInterests": []
-    }
-  ],
-  "carts": [
-    {
-      "userId": "2",
-      "items": [
-        {}
-      ],
-      "id": "9eb4"
-    },
-    {
-      "userId": "3",
-      "items": [
-        {}
-      ],
-      "id": "fa3b"
-    },
-    {
-      "id": "b3f3",
-      "userId": "00d9",
-      "items": []
-    },
-    {
-      "id": "8afe",
-      "userId": "923f",
-      "items": []
-    },
-    {
-      "id": "60a3",
-      "userId": "db97",
-      "items": []
     }
   ]
 }

@@ -4,16 +4,16 @@
         <!-- SHOP NAME -->
         <div id="shopName"><a href="dashboard"> <b>SHOP</b>LANE </a></div>
         <div id="collection">
-            <div id="dashboard"><a href="dashboard"> HOME </a></div>
+            <div id="dashboard"><a href="dashboard"><i class="fas fa-home" style="font-size:24px"></i> HOME </a></div>
         </div>
             <div id="collection">
-                <div id="clothing"><a href="clothing.html"> CLOTHING </a></div>
-            </div>
-            <div id="collection">
-                <div id="accessories"><a href="accessories.html"> ACCESSORIES </a></div>
+                <div id="clothing"><a href="clothing.html"><i class="fas fa-tshirt" style="font-size:24px"></i> CLOTHING </a></div>
             </div>
             <div *ngIf="isAdmin" id="admin">
-                <div id="admin"><a href="admin"> USERS </a></div>
+                <div id="admin"><a href="admin"><i class="fas fa-users" style="font-size:24px"></i> USERS </a></div>
+            </div>
+            <div *ngIf="isAdmin" id="product">
+                <div id="product"><a href="product"><i class="fas fa-cubes" style="font-size:24px"></i> Products </a></div>
             </div>
             <!-- SEARCH SECTION -->
             <!-- <div id="search">
@@ -28,7 +28,7 @@
             </div>-->
             
             <div id="user">
-                <a href="#"> <i class="fas fa-user-circle userIcon"></i> </a>
+                <a [routerLink]="['/profile', { username: username, isAdmin: isAdmin }]"> <i class="fas fa-user-circle userIcon"></i> </a>
             </div> 
             <a [routerLink]="['/login']">
                 <i class="fas fa-user-times" style="font-size:26px;color:red"></i>

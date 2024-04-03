@@ -26,9 +26,9 @@ export class AuthComponent {
       .subscribe(
         (user: User) => {
           if (user.type === 'admin') {
-            this.router.navigate(['/admin'], { queryParams: { isAdmin: 'true' } });
+            this.router.navigate(['/admin'], { queryParams: { isAdmin: 'true', username:this.username } });
           } else {
-            this.router.navigate(['/dashboard'], { queryParams: { isAdmin: 'false' } }); 
+            this.router.navigate(['/dashboard'], { queryParams: { isAdmin: 'false',  username:this.username } }); 
           }
         },
         (errorMessage) => {

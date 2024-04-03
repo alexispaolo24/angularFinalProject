@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
   @Input() isAdmin: boolean = true;
+  @Input() username: string = '';
 }
