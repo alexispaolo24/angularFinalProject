@@ -35,8 +35,6 @@ export class DashboardComponent implements OnInit {
     this.isAdmin = isAdminQueryParam === 'true'; 
     this.productService.getProducts().subscribe(
       (products: Product[]) => {
-        console.log('Admin', this.isAdmin);
-        console.log('Username', this.username);
         this.products = products;
         
         if (this.isAdmin) {

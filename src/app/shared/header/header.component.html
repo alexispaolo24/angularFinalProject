@@ -2,18 +2,21 @@
     <!-- MAIN CONTAINER -->
     <div id="container">
         <!-- SHOP NAME -->
-        <div id="shopName"><a href="dashboard"> <b>SHOP</b>LANE </a></div>
+        <div id="shopName"> <b>SHOP</b>LANE </div>
         <div id="collection">
-            <div id="dashboard"><a href="dashboard"><i class="fas fa-home" style="font-size:24px"></i> HOME </a></div>
-        </div>
+            <div id="dashboard">
+                <a [routerLink]="['/dashboard']" [queryParams]="{ username: username, isAdmin: isAdmin }">
+                    <i class="fas fa-home" style="font-size:24px"></i> HOME 
+                </a>
+            </div>        </div>
             <div id="collection">
                 <div id="clothing"><a href="clothing.html"><i class="fas fa-tshirt" style="font-size:24px"></i> CLOTHING </a></div>
             </div>
             <div *ngIf="isAdmin" id="admin">
-                <div id="admin"><a href="admin"><i class="fas fa-users" style="font-size:24px"></i> USERS </a></div>
+                <div id="admin"><a [routerLink]="['/admin', { username: username, isAdmin: isAdmin }]"><i class="fas fa-users" style="font-size:24px"></i> USERS </a></div>
             </div>
             <div *ngIf="isAdmin" id="product">
-                <div id="product"><a href="product"><i class="fas fa-cubes" style="font-size:24px"></i> Products </a></div>
+                <div id="product"><a [routerLink]="['/products', { username: username, isAdmin: isAdmin }]"><i class="fas fa-cubes" style="font-size:24px"></i> Products </a></div>
             </div>
             <!-- SEARCH SECTION -->
             <!-- <div id="search">

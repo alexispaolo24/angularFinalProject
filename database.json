@@ -28,15 +28,6 @@
       "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/a063bd825bd84013b722aebc01176fa0_9366/NY_90_Shoes_White_GX4394_04_standard.jpg"
     },
     {
-      "id": "4",
-      "name": "Design Loafer Shoes",
-      "category": "Womens",
-      "price": 133,
-      "quantity": 0,
-      "sales": 20,
-      "image": "https://down-ph.img.susercontent.com/file/sg-11134201-7rbk7-lofgrqgpnecg4a"
-    },
-    {
       "id": "5",
       "name": "Nike Legend Essential 3 Nature Workout Shoes",
       "category": "Womens",
@@ -44,6 +35,27 @@
       "quantity": 0,
       "sales": 10,
       "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/69b513e0-6b93-45f4-9396-50d0d5ee12cb/legend-essential-3-next-nature-workout-shoes-wQRBs9.png"
+    },
+    {
+      "id": "2d11",
+      "name": "Nike Dunk Low",
+      "category": "Shoes",
+      "price": 7395,
+      "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/e8220807-de96-471f-93cf-ab84345cbfe3/dunk-low-shoes-W544sp.png"
+    },
+    {
+      "id": "2837",
+      "name": "Nike Vaporfly 3",
+      "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/1af9c87c-6e11-4bc6-ad66-648558bc49b7/vaporfly-3-road-racing-shoes-xsDgvM.png",
+      "price": 11995,
+      "category": "Shoes"
+    },
+    {
+      "id": "c453",
+      "name": "Sweat Long Sleeve Shirt",
+      "category": "Long Sleeve",
+      "price": 1490,
+      "image": "https://image.uniqlo.com/UQ/ST3/ph/imagesgoods/444966/item/phgoods_52_444966.jpg?width=750"
     }
   ],
   "users": [
@@ -100,7 +112,7 @@
       "isActive": true,
       "password": "jhomariPassword123",
       "firstName": "Jhomari",
-      "middleName": "Barcelona",
+      "middleName": "Barcelonaaaa",
       "lastName": "Atienza",
       "mobileNo": "09487900042",
       "listOfInterests": []
