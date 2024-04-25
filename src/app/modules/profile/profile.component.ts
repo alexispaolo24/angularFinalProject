@@ -22,8 +22,8 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const isAdminQueryParam = this.route.snapshot.queryParamMap.get('isAdmin');
-    this.isAdmin = isAdminQueryParam === 'true'; 
+    const isAdminParam = this.route.snapshot.paramMap.get('isAdmin');
+this.isAdmin = isAdminParam === 'true'; 
     const usernameParam = this.route.snapshot.paramMap.get('username');
     if (usernameParam) {
       this.username = usernameParam;

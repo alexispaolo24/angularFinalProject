@@ -12,11 +12,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh; /* Adjust the height as needed */
+    min-height: 80vh;
   }
   .form-control-lg {
-    padding: 1rem; /* Increase padding to make the form fields bigger */
-    font-size: 1rem; /* Adjust font size */
+    width: 300px;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  .custom-card{
+    display: inline-block;
+   width: 350px; /* Set the maximum width as desired */
+  margin-right: 65px;
   }
 </style>
 </head>
@@ -24,7 +30,7 @@
 <div class="container-fluid container-center">
     <div class="row justify-content-center">
       <div class="col-lg-10">
-        <div class="card mt-5 shadow">
+        <div class="card mt-6 shadow custom-card">
           <div class="card-header text-center">
             <h2>Add Product</h2>
           </div>
@@ -50,7 +56,7 @@
                 <div class="col-md-6">
                   <button type="submit" class="btn btn-primary btn-lg btn-block">Add</button>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 margin-right = 0">
                   <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="closeDialog()">Cancel</button>
                 </div>
               </div>
