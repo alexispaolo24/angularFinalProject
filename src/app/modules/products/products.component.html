@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [isAdmin]="isAdmin" [username]="username"></app-header>
 <div>
     <h2>Products</h2>
     <button (click)="openAddDialog()" class="action-button">Add Product</button>
@@ -10,7 +10,7 @@
             <th>Price</th>
             <th>Actions</th>
         </tr>
-        <tr *ngFor="let product of products">
+        <tr *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: page, id: 'productPaginator' }">
             <td>{{ product.name }}</td>
             <td>{{ product.category }}</td>
             <td>
@@ -23,4 +23,5 @@
             </td>
         </tr>
     </table>
+    <mat-paginator [length]="products.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" (page)="pageChanged($event)" id="productPaginator"></mat-paginator>
 </div>

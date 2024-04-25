@@ -3,7 +3,8 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import { EditComponent } from '../edit/edit.component';
+import { EditComponent } from '../edit/edit.component';import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-admin',
@@ -11,6 +12,8 @@ import { EditComponent } from '../edit/edit.component';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+  username: string = '';
+  isAdmin: boolean = false;
   users$: Observable<User[]> | undefined;
   currentPage: number = 1;
   itemsPerPage: number = 5;
@@ -28,10 +31,17 @@ export class AdminComponent implements OnInit {
   };
   selectedUser: User | undefined;
 
-  constructor(private userService: UserService, private dialog: MatDialog) { }
+  constructor(private userService: UserService, private dialog: MatDialog, 
+    private router: Router,
+    private route: ActivatedRoute,) { }
 
   ngOnInit() {
+    const isAdminParam = this.route.snapshot.paramMap.get('isAdmin');
+this.isAdmin = isAdminParam === 'true';
+    const usernameParam = this.route.snapshot.paramMap.get('username');
+    this.username = usernameParam ? usernameParam : ''; // Provide a default value if usernameParam is null
     this.getUsers();
+    console.log(this.isAdmin);
   }
 
   addUser() {

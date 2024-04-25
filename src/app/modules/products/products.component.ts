@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductService } from '../../services/product.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from '../../services/user.service';
 import { Product } from '../../models/product';
 import { MatDialog } from '@angular/material/dialog';
-import { EditProductComponent } from '../edit-product/edit-product.component'; // Assuming you have an EditProductComponent for the edit form dialog
+import { EditProductComponent } from '../edit-product/edit-product.component';
 import { AddProductComponent } from '../add-product/add-product.component';
 
 @Component({
@@ -11,15 +13,29 @@ import { AddProductComponent } from '../add-product/add-product.component';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+  username: string = '';
+  isAdmin: boolean = false;
   products: Product[] = [];
+  page = 1;
+  currentPage: number = 1;
+  itemsPerPage: number = 5;
 
   constructor(
+    private router: Router,
+    private route: ActivatedRoute,
     private productService: ProductService,
-    private dialog: MatDialog // Inject MatDialog here
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
+    const isAdminParam = this.route.snapshot.paramMap.get('isAdmin');
+this.isAdmin = isAdminParam === 'true';
+    const usernameParam = this.route.snapshot.paramMap.get('username');
+    this.username = usernameParam ? usernameParam : ''; // Provide a default value if usernameParam is null
     this.getProducts();
+    console.log(this.isAdmin);
+    console.log(this.username)
+
   }
 
   getProducts(): void {
@@ -40,7 +56,7 @@ export class ProductsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(newProduct => {
       if (newProduct) {
-        this.addProduct(newProduct); // Call addProduct method with new product data
+        this.addProduct(newProduct);
       }
     });
   }
@@ -54,12 +70,12 @@ export class ProductsComponent implements OnInit {
   openEditDialog(product: Product): void {
     const dialogRef = this.dialog.open(EditProductComponent, {
       width: '500px',
-      data: { product } // Pass the product data to the dialog
+      data: { product }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) { // If result is not null (i.e., user clicked Save)
-        this.editProduct(result); // Edit the product with the updated data
+      if (result) {
+        this.editProduct(result);
       }
     });
   }
@@ -82,5 +98,9 @@ export class ProductsComponent implements OnInit {
     } else {
       console.error('Product ID is undefined.');
     }
+  }
+
+  pageChanged(event: any): void {
+    this.page = event.pageIndex + 1;
   }
 }
